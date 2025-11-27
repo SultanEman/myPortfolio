@@ -1,0 +1,7 @@
+jQuery(document).ready(function () {
+  jQuery("a").each(function () {
+    if (jQuery(this).attr("href").indexOf("href.li") >= 0) {
+      jQuery(this).attr("target", "_blank");
+    }
+  });
+});
