@@ -70,10 +70,13 @@ window.addEventListener("load", () => {
     });
 });
 
+const myPic = document.querySelector('.my__pic');
+
 prof.addEventListener('click', function () {
     landing.style.display = 'none';
     mainHeader.style.display = 'block';
     mainContent.style.display = 'block';
+    myPic.style.display = 'none';
 })
 
 
@@ -81,11 +84,13 @@ profileIcon.addEventListener('click', function (e) {
     landing.style.display = 'none';
     mainHeader.style.display = 'block';
     mainContent.style.display = 'block';
+    myPic.style.display = 'none';
     mainAbout.scrollIntoView({ behavior: 'smooth' });
 })
 
 projectsIcon.addEventListener('click', function (e) {
     landing.style.display = 'none';
+    myPic.style.display = 'none';
     mainHeader.style.display = 'block';
     mainContent.style.display = 'block';
     projects.scrollIntoView({ behavior: 'smooth' });
@@ -169,3 +174,33 @@ document.querySelectorAll('.main-nav ul li').forEach(function (e) {
 
     })
 })
+
+const layer = document.querySelector('.layer');
+const closeMenu = document.querySelector('.closeMenu');
+const dropMenu = document.querySelector('.drop_menu');
+const menueBar = document.querySelector('.menu_bar');
+
+menueBar.addEventListener('click', function () {
+    layer.style.display = 'block';
+    closeMenu.style.display = 'block';
+    dropMenu.style.display = 'block';
+})
+
+closeMenu.addEventListener('click', function () {
+    layer.style.display = 'none';
+    dropMenu.style.display = 'none';
+    closeMenu.style.display = 'none';
+})
+
+const dropLinks = document.querySelectorAll('.drop_nav ul li');
+
+dropLinks.forEach(link => {
+    link.addEventListener('click', function () {
+        layer.style.display = 'none';
+        dropMenu.style.display = 'none';
+        closeMenu.style.display = 'none';
+        document.getElementById(`${link.firstChild.getAttribute('href').substring(1)}`).scrollIntoView({ behavior: 'smooth' });
+    })
+})
+
+
